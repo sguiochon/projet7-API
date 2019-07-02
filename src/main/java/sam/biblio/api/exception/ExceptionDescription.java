@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 /**
  * Data structure to be sent to the client (serialized as JSON object) in
- * case of error while processing a request.
+ * case of error occurring while processing a request.
  */
 public class ExceptionDescription {
 

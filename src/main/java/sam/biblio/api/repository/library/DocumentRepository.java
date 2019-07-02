@@ -10,8 +10,8 @@ import java.util.Optional;
 @Repository
 public interface DocumentRepository extends JpaRepository<Document, Long> {
 
-    @Override
+    //@Override
     //@EntityGraph(value = "Document.copies", type = EntityGraph.EntityGraphType.FETCH)
-    Optional<Document> findById(Long id);
+    //Optional<Document> findById(Long id);
 
 }

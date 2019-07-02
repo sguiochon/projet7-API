@@ -1,5 +1,7 @@
 package sam.biblio.api.model.library;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -9,6 +11,7 @@ public class Lending {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDate start;
+    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDate end;
     private Integer nbPostponement;
     @ManyToOne
