@@ -24,7 +24,7 @@ public class LendingResourceAssembler implements ResourceAssembler<Lending, Reso
     public Resource<Lending> toResource(Lending lending) {
 
         Link linkToSelf = entityLinks.linkToSingleResource(Lending.class, lending.getId()).withSelfRel();
-        Link linkToCopy = entityLinks.linkToSingleResource(Copy.class, lending.getCopy().getCode()).withRel("copy");
+        Link linkToCopy = entityLinks.linkToSingleResource(Copy.class, lending.getCopy().getId()).withRel("copy");
         Link linkToMember = entityLinks.linkToSingleResource(Member.class, lending.getMember().getId()).withRel("member");
 
         return new Resource<>(lending, linkToSelf, linkToCopy, linkToMember );

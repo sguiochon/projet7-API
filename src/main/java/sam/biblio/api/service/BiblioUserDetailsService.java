@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Qualifier("userDetailsService")
+//@Qualifier("userDetailsService")
 @Transactional
 public class BiblioUserDetailsService implements UserDetailsService {
 

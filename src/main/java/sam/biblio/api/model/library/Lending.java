@@ -10,15 +10,22 @@ public class Lending {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDate start;
+
     @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private LocalDate end;
+
     private Integer nbPostponement;
+
+    // coucou
     @ManyToOne
     @JoinTable(name="member_lendings",
                 joinColumns = {@JoinColumn(name="lending_id",referencedColumnName = "id")},
                 inverseJoinColumns = {@JoinColumn(name="member_id",referencedColumnName = "id")})
     private Member member;
+
     @OneToOne
     private Copy copy;
 

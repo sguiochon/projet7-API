@@ -15,7 +15,7 @@ public class CopyResourceAssembler implements ResourceAssembler<Copy, Resource<C
     @Override
     public Resource<Copy> toResource(Copy copy) {
         return new Resource<>(copy,
-                linkTo(methodOn(CopyController.class).one(copy.getCode())).withSelfRel(),
+                linkTo(methodOn(CopyController.class).one(copy.getId())).withSelfRel(),
                 linkTo(methodOn(CopyController.class).all(null, null)).withRel("copies"));
     }
 

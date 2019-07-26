@@ -1,18 +1,17 @@
 package sam.biblio.api.model.library;
 
+import sam.biblio.api.model.UrlIdentifiedRessource;
+
 import javax.persistence.*;
 
 @Entity
-public class Copy {
+public class Copy extends UrlIdentifiedRessource {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long code;
     @Enumerated(value = EnumType.STRING)
     private CopyStatus status;
     @ManyToOne(fetch = FetchType.EAGER)
     private Document document;
-    @OneToOne
+    @OneToOne(mappedBy = "copy")
     private Lending lending;
 
     public Lending getLending() {
@@ -23,12 +22,12 @@ public class Copy {
         this.lending = lending;
     }
 
-    public Long getCode() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
-    public void setCode(Long code) {
-        this.code = code;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public CopyStatus getStatus() {
@@ -45,5 +44,13 @@ public class Copy {
 
     public void setDocument(Document document) {
         this.document = document;
+    }
+
+    public Copy(String url){
+        super("/copies/", url);
+    }
+
+    public Copy(){
+        super();
     }
 }

@@ -39,7 +39,7 @@
 	<logger name="org.springframework.jpa" level="DEBUG" additivity="false"/>
 	<logger name="org.springframework.jdbc" level="DEBUG" additivity="false"/>
 	<logger name="org.springframework.transaction" level="WARN" />
-	<logger name="org.springframework.security" level="INFO" additivity="false"/>
+	<logger name="org.springframework.security" level="TRACE" additivity="false"/>
 	<logger name="org.apache.tomcat" level="WARN" additivity="false"/>
 
 	<!-- in order to debug some marshalling issues, this needs to be TRACE -->

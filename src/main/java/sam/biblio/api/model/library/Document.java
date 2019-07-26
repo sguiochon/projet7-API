@@ -16,7 +16,7 @@ public class Document {
     private String title;
     private String author;
     private String description;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "document")
     private List<Copy> copies;
 
     public List<Copy> getCopies() {

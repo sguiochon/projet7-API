@@ -35,14 +35,15 @@ public class LendingController {
 
         Lending lending = lendingRepository.findById(id)
                 .map( l -> {
-                    if (l.getNbPostponement()>=2)
-                        throw new LendingPeriodExtensionException( id, l.getNbPostponement());
+                    if (updatedLending.getNbPostponement()>2)
+                        throw new LendingPeriodExtensionException( id, updatedLending.getNbPostponement());
                   return l;
                 } )
                 .map(l -> {
                     l.setStart(updatedLending.getStart());
                     l.setEnd(updatedLending.getEnd());
                     l.setNbPostponement(updatedLending.getNbPostponement());
+                    l.setMember(updatedLending.getMember());
                     return lendingRepository.save(l);
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("lending", id));

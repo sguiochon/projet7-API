@@ -3,10 +3,13 @@ package sam.biblio.api.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import sam.biblio.api.service.BiblioUserDetailsService;
@@ -24,27 +27,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                //HTTP Basic authentication
+                .httpBasic()
+                .and()
                 .authorizeRequests()
-                .antMatchers("/**", "/",  "/documents", "/documents/**", "/copies", "/copies/*", "/api/**", "/error").permitAll()
-                .antMatchers("/resa", "/pret").hasAuthority("USER")
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .anyRequest().authenticated()
+                .antMatchers(HttpMethod.GET, "/users", "/users/**").hasAnyAuthority("USER","ADMIN")
+                .antMatchers(HttpMethod.POST, "/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/**").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/**").hasAuthority("ADMIN")
                 .and()
-                .exceptionHandling().accessDeniedPage("/access-denied-error-page")
-                //.and()
-                //    .formLogin()
-                //    .loginPage("/login")
-                //    .successForwardUrl("/")
-                //    .failureForwardUrl("/login-error")
-                //    .permitAll()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                    .logout()
-                    .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID")
-                    .permitAll()
-                .and()
-                    .rememberMe()
-                .and().csrf().disable();
+                .csrf().disable()
+                .formLogin().disable();
     }
 
     /**

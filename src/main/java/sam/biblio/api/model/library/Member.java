@@ -1,6 +1,8 @@
 package sam.biblio.api.model.library;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.hateoas.ResourceSupport;
+import sam.biblio.api.model.UrlIdentifiedRessource;
 import sam.biblio.api.model.security.User;
 
 import javax.persistence.*;
@@ -8,11 +10,9 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-public class Member {
+@Table(name="member")
+public class Member extends UrlIdentifiedRessource {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @OneToOne
     private User user;
@@ -57,4 +57,13 @@ public class Member {
     public void setLendings(Set<Lending> lendings) {
         this.lendings = lendings;
     }
+
+    public Member(String url){
+        super("/members/", url);
+    }
+
+    public Member(){
+        super();
+    }
+
 }
