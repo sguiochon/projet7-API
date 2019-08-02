@@ -29,18 +29,20 @@
 	</appender>
 
 
-	<logger name="sam.ocr.escalade" level="DEBUG" />
+	<logger name="sam.biblio.api" level="DEBUG" />
 
 	<!-- to view SQL statements, set to DEBUG -->
-	<logger name="org.hibernate.SQL" level="INFO" />
+	<logger name="org.hibernate" level="INFO" additivity="false"/>
 
-	<logger name="org.springframework" level="INFO"/>
+	<logger name="org.springframework" level="TRACE"/>
 	<logger name="com.zaxxer.hikari" level="INFO" additivity="false"/>
-	<logger name="org.springframework.jpa" level="DEBUG" additivity="false"/>
-	<logger name="org.springframework.jdbc" level="DEBUG" additivity="false"/>
-	<logger name="org.springframework.transaction" level="WARN" />
+	<logger name="org.springframework.jpa" level="INFO" additivity="false"/>
+	<logger name="org.springframework.jdbc" level="INFO" additivity="false"/>
+	<logger name="org.springframework.orm" level="WARN" additivity="false"/>
+	<logger name="org.springframework.transaction" level="WARN" additivity="false"/>
 	<logger name="org.springframework.security" level="TRACE" additivity="false"/>
 	<logger name="org.apache.tomcat" level="WARN" additivity="false"/>
+	<logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="DEBUG" additivity="false"/>
 
 	<!-- in order to debug some marshalling issues, this needs to be TRACE -->
 	<logger name="org.springframework.web.servlet.mvc" level="DEBUG" />
