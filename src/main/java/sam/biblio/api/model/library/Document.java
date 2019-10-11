@@ -15,9 +15,18 @@ public class Document {
     private Long id;
     private String title;
     private String author;
+    private String image;
     private String description;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "document")
     private List<Copy> copies;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public List<Copy> getCopies() {
         return copies;

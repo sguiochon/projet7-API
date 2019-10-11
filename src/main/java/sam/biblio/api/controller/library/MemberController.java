@@ -25,7 +25,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 //@RestController
 public class MemberController {
-
+/*
     private MemberRepository memberRepository;
 
     private MemberResourceAssembler memberAssembler;
@@ -61,4 +61,5 @@ public class MemberController {
         //member.setCopies(null);
         return memberAssembler.toResource(member);
     }
+    */
 }

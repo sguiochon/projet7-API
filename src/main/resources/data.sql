@@ -41,21 +41,22 @@ INSERT INTO member (id, membership_start_date, user_id) VALUES (2, '2009-09-17',
 INSERT INTO member (id, membership_start_date, user_id) VALUES (3, '2009-09-17', 5);
 
 -- Créaton d'un document et de ses exemplaires:
-INSERT INTO document (id, title, author, description) VALUES (1, 'Le petit chaperon rouge', 'Charles Perrault', 'Conte de tradition orale');
+INSERT INTO document (id, title, author, description, image) VALUES (1, 'Le petit chaperon rouge', 'Charles Perrault', 'Conte de tradition orale', 'chaperon_rouge.jpg');
+INSERT INTO copy (id, status, document_id) VALUES (2, 'available', 1);
 INSERT INTO copy (id, status, document_id) VALUES (3, 'available', 1);
 INSERT INTO copy (id, status, document_id) VALUES (4, 'available', 1);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (1,3);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (1,4);
 
 -- Créaton d'un document et de ses exemplaires:
-INSERT INTO document (id, title, author, description) VALUES (2, 'Bilbo le hobbit', 'J.R.R. Tolkien', 'Célèbre roman fantastique');
+INSERT INTO document (id, title, author, description, image) VALUES (2, 'Bilbo le hobbit', 'J.R.R. Tolkien', 'Célèbre roman fantastique', 'biblo.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (5, 'available', 2);
 INSERT INTO copy (id, status, document_id) VALUES (6, 'available', 2);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (2,5);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (2,6);
 
 -- Créaton d'un document et de ses exemplaires:
-INSERT INTO document (id, title, author, description) VALUES (3, 'On a marché sur la lune', 'Hergé', 'Tintin');
+INSERT INTO document (id, title, author, description, image) VALUES (3, 'On a marché sur la lune', 'Hergé', 'Tintin', 'on_a_marche_sur_la_lune.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (7, 'available', 3);
 INSERT INTO copy (id, status, document_id) VALUES (8, 'available', 3);
 INSERT INTO copy (id, status, document_id) VALUES (9, 'available', 3);
@@ -64,7 +65,7 @@ INSERT INTO copy (id, status, document_id) VALUES (9, 'available', 3);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (3,9);
 
 -- Créaton d'un document et de ses exemplaires:
-INSERT INTO document (id, title, author, description) VALUES (4, 'Objectif lune', 'Hergé', 'Tintin');
+INSERT INTO document (id, title, author, description, image) VALUES (4, 'Objectif lune', 'Hergé', 'Tintin','objectif_lune.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (10, 'available', 4);
 INSERT INTO copy (id, status, document_id) VALUES (11, 'available', 4);
 INSERT INTO copy (id, status, document_id) VALUES (12, 'available', 4);
@@ -73,7 +74,7 @@ INSERT INTO copy (id, status, document_id) VALUES (12, 'available', 4);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (4,12);
 
 -- Créaton d'un document et de ses exemplaires:
-INSERT INTO document (id, title, author, description) VALUES (5, 'Le Dirdir', 'Jack Vance', 'Le cycle de Tschaï');
+INSERT INTO document (id, title, author, description, image) VALUES (5, 'Le Dirdir', 'Jack Vance', 'Le cycle de Tschaï', 'cycle_de_tschai.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (13, 'available', 5);
 INSERT INTO copy (id, status, document_id) VALUES (14, 'available', 5);
 INSERT INTO copy (id, status, document_id) VALUES (15, 'available', 5);
@@ -81,7 +82,7 @@ INSERT INTO copy (id, status, document_id) VALUES (15, 'available', 5);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (5,14);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (5,15);
 
-INSERT INTO document (id, title, author, description) VALUES (6, 'Les voies d`Anubis', 'Tim Powers', 'Un monument');
+INSERT INTO document (id, title, author, description, image) VALUES (6, 'Les voies d`Anubis', 'Tim Powers', 'Un monument', 'anubis.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (16, 'available', 6);
 INSERT INTO copy (id, status, document_id) VALUES (17, 'available', 6);
 INSERT INTO copy (id, status, document_id) VALUES (18, 'available', 6);

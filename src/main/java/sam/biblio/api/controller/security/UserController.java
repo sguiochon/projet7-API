@@ -25,7 +25,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 //@RestController
 public class UserController {
-
+/*
     private UserRepository userRepository;
     private UserResourceAssembler userAssembler;
 
@@ -60,7 +60,7 @@ public class UserController {
         User user = userRepository.findByEmailIgnoreCase(email).orElseThrow(() -> new ResourceNotFoundException("user", email));
         return userAssembler.toResource(user);
     }
-
+*/
 /*
     @GetMapping(value = "/users/{id}", produces = {"application/json"})
     public Resource<User> one(@PathVariable Long id) {
