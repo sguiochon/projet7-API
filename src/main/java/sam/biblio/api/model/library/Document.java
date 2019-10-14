@@ -1,6 +1,8 @@
 package sam.biblio.api.model.library;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import sam.biblio.api.model.UrlIdentifiedRessource;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +13,9 @@ import java.util.List;
 public class Document {
 
     @Id
+    @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("documentId")
     private Long id;
     private String title;
     private String author;

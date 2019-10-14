@@ -1,14 +1,19 @@
 package sam.biblio.api.model.library;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import sam.biblio.api.model.UrlIdentifiedRessource;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Lending {
+public class Lending {//extends UrlIdentifiedRessource {
+
     @Id
+    @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("lendingId")
     private Long id;
 
     @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)

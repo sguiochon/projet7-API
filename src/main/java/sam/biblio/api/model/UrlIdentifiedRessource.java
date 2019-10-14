@@ -2,6 +2,7 @@ package sam.biblio.api.model;
 
 import javax.persistence.*;
 
+
 @MappedSuperclass
 public abstract class UrlIdentifiedRessource {
 

@@ -1,14 +1,20 @@
 package sam.biblio.api.model.library;
 
-import sam.biblio.api.model.UrlIdentifiedRessource;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
 @Entity
-public class Copy extends UrlIdentifiedRessource {
+public class Copy {//extends UrlIdentifiedRessource {
+
+    @Id
+    @Column(unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("copyId")
+    private Long id;
 
     @Enumerated(value = EnumType.STRING)
-    private CopyStatus status;
+    private CopyStatusEnum status;
     @ManyToOne(fetch = FetchType.EAGER)
     private Document document;
     @OneToOne(mappedBy = "copy")
@@ -30,11 +36,11 @@ public class Copy extends UrlIdentifiedRessource {
         this.id = id;
     }
 
-    public CopyStatus getStatus() {
+    public CopyStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(CopyStatus status) {
+    public void setStatus(CopyStatusEnum status) {
         this.status = status;
     }
 
@@ -46,11 +52,4 @@ public class Copy extends UrlIdentifiedRessource {
         this.document = document;
     }
 
-    public Copy(String url){
-        super("/copies/", url);
-    }
-
-    public Copy(){
-        super();
-    }
 }

@@ -1,5 +1,7 @@
 package sam.biblio.api.model.security;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +13,7 @@ public class User {
     @Id
     @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("userId")
     private Long id;
 
     private String firstName;
