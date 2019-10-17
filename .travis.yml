@@ -1,0 +1,9 @@
+addons:
+  sonarcloud:
+    organization: "sguiochon"
+    token:
+      secure: "016bb2f4d0ad9aa4e0b45e6d2a4670d325c1d206" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=sguiochon_projet7-API
