@@ -40,7 +40,6 @@ public class DocumentController {
         List<Link> links = new ArrayList<>();
         links.add(linkTo(methodOn(DocumentController.class).findByText(text, pageSize, pageIndex)).withSelfRel());
         if (pageSize == null && pageIndex == null) {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>");
             resources = documentRepository.findByAuthorContainsOrTitleContains(text, text, null).stream().map(documentAssembler::toResource).collect(Collectors.toList());
         } else {
             Page<Document> pageOut = documentRepository.findByAuthorContainsOrTitleContains(text, text, PageRequest.of(pageIndex, pageSize));
@@ -50,7 +49,6 @@ public class DocumentController {
             if (pageOut.hasNext())
                 links.add(linkTo(methodOn(DocumentController.class).findByText(text, pageSize, pageIndex + 1)).withRel("next"));
         }
-        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         return new Resources<>(resources, links);
     }
 

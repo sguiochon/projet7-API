@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Lending {//extends UrlIdentifiedRessource {
+public class Lending {
 
     @Id
     @Column(unique = true, nullable = false)
@@ -24,7 +24,6 @@ public class Lending {//extends UrlIdentifiedRessource {
 
     private Integer nbPostponement;
 
-    // coucou
     @ManyToOne
     @JoinTable(name="member_lendings",
                 joinColumns = {@JoinColumn(name="lending_id",referencedColumnName = "id")},

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 
 @Entity
-public class Copy {//extends UrlIdentifiedRessource {
+public class Copy {
 
     @Id
     @Column(unique = true, nullable = false)
@@ -17,6 +17,7 @@ public class Copy {//extends UrlIdentifiedRessource {
     private CopyStatusEnum status;
     @ManyToOne(fetch = FetchType.EAGER)
     private Document document;
+
     @OneToOne(mappedBy = "copy")
     private Lending lending;
 

@@ -1,7 +1,6 @@
 package sam.biblio.api.model.security;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class Privilege {
@@ -12,9 +11,6 @@ public class Privilege {
 
     private String name;
 
-    //@ManyToMany(mappedBy = "privileges")
-    //private Collection<Role> roles;
-
     public Privilege() {
         super();
     }
@@ -23,8 +19,6 @@ public class Privilege {
         super();
         this.name = name;
     }
-
-    //
 
     public Long getId() {
         return id;
@@ -41,14 +35,6 @@ public class Privilege {
     public void setName(final String name) {
         this.name = name;
     }
-
-    //public Collection<Role> getRoles() {
-    //    return roles;
-    //}
-
-    //public void setRoles(final Collection<Role> roles) {
-    //    this.roles = roles;
-    //}
 
     @Override
     public int hashCode() {
@@ -68,11 +54,8 @@ public class Privilege {
             return false;
         Privilege other = (Privilege) obj;
         if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        return true;
+            return other.name == null;
+        } else return name.equals(other.name);
     }
 
     @Override

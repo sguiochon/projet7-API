@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="member")
-public class Member {//extends UrlIdentifiedRessource {
+public class Member {
 
     @Id
     @Column(unique = true, nullable = false)
@@ -27,9 +27,6 @@ public class Member {//extends UrlIdentifiedRessource {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "member", fetch = FetchType.EAGER)
     @JsonIgnoreProperties("member")
-    //@JoinTable(name="member_lending",
-    //        joinColumns = {@JoinColumn(name="member_id",referencedColumnName = "id")},
-    //        inverseJoinColumns = {@JoinColumn(name="lending_id",referencedColumnName = "id")})
     private Set<Lending> lendings;
 
     public Long getId() {
@@ -63,6 +60,5 @@ public class Member {//extends UrlIdentifiedRessource {
     public void setLendings(Set<Lending> lendings) {
         this.lendings = lendings;
     }
-
 
 }

@@ -9,7 +9,6 @@ import java.util.List;
 
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
-//@NamedEntityGraph(name = "Document.copies", attributeNodes = @NamedAttributeNode("copies"))
 public class Document {
 
     @Id
@@ -71,6 +70,5 @@ public class Document {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
 }
