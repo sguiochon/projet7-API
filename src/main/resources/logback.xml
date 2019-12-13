@@ -29,22 +29,6 @@
 	</appender>
 
 
-	<!--<logger name="sam.biblio.api" level="DEBUG" />-->
-	<!--&lt;!&ndash; to view SQL statements, set to DEBUG &ndash;&gt;-->
-	<!--<logger name="org.hibernate" level="INFO" additivity="false"/>-->
-	<!--<logger name="org.springframework" level="DEBUG"/>-->
-	<!--<logger name="com.zaxxer.hikari" level="INFO" additivity="false"/>-->
-	<!--<logger name="org.springframework.jpa" level="INFO" additivity="false"/>-->
-	<!--<logger name="org.springframework.jdbc" level="INFO" additivity="false"/>-->
-	<!--<logger name="org.springframework.orm" level="WARN" additivity="false"/>-->
-	<!--<logger name="org.springframework.transaction" level="WARN" additivity="false"/>-->
-	<!--<logger name="org.springframework.security" level="DEBUG" additivity="false"/>-->
-	<!--<logger name="org.apache.tomcat" level="WARN" additivity="false"/>-->
-	<!--<logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="DEBUG" additivity="false"/>-->
-
-	<!--&lt;!&ndash; in order to debug some marshalling issues: &ndash;&gt;-->
-	<!--<logger name="org.springframework.web.servlet.mvc" level="DEBUG" />-->
-
 	<root level="INFO">
 		<!--<appender-ref ref="FILE" />-->
 		<appender-ref ref="STDOUT" />
