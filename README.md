@@ -32,3 +32,75 @@ Si nécessaire, l'application peut-être packagée via `mvn package` pour une ex
 ## Test de l'application
 Dans la suite, il est considéré que l'application est exposée sur le endpoint http://localhost:9990.
 
+**Liste des ressources:**
+GET http://localhost:9990
+
+Réponse:
+
+`{
+  "_links" : {
+    "members" : {
+      "href" : "http://localhost:9990/members{?page,size,sort}",
+      "templated" : true
+    },
+    "documents" : {
+      "href" : "http://localhost:9990/documents{?page,size,sort}",
+      "templated" : true
+    },
+    "users" : {
+      "href" : "http://localhost:9990/users{?page,size,sort}",
+      "templated" : true
+    },
+    "lendings" : {
+      "href" : "http://localhost:9990/lendings{?page,size,sort}",
+      "templated" : true
+    },
+    "copies" : {
+      "href" : "http://localhost:9990/copies{?page,size,sort}",
+      "templated" : true
+    },
+    "profile" : {
+      "href" : "http://localhost:9990/profile"
+    }
+  }
+}`
+
+
+**Liste des documents**
+GET http://localhost:9990/documents
+
+Réponse (volontairement tronquée):
+
+`{
+  "_embedded" : {
+    "documents" : [ {
+      "title" : "Le petit chaperon rouge",
+      "author" : "Charles Perrault",
+      "image" : "chaperon_rouge.jpg",
+      "description" : "Conte de tradition orale",
+      "documentId" : 1,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:9990/documents/1"
+        },
+        "document" : {
+          "href" : "http://localhost:9990/documents/1"
+        },
+        "copies" : {
+          "href" : "http://localhost:9990/documents/1/copies"
+        }
+      }
+    }, {
+      "title" : "Bilbo le hobbit",
+      "author" : "J.R.R. Tolkien",
+      "image" : "biblo.jpg",
+      "description" : "Célèbre roman fantastique",
+      "documentId" : 2,
+      "_l...`
+
+
+**Liste des users**
+GET http://localhost:9990/users
+
+L'accès à cette ressource nécessite une authentification par Basic Auth.
+Utiliser `harry@hell.com, 1234`
