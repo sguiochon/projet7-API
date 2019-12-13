@@ -2,8 +2,6 @@ package sam.biblio.api.model.library;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.hateoas.ResourceSupport;
-import sam.biblio.api.model.UrlIdentifiedRessource;
 import sam.biblio.api.model.security.User;
 
 import javax.persistence.*;
@@ -11,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name="member")
+@Table(name = "member")
 public class Member {
 
     @Id

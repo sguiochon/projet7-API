@@ -1,5 +1,6 @@
 package sam.biblio.api.model.library;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import sam.biblio.api.model.UrlIdentifiedRessource;
@@ -21,6 +22,7 @@ public class Document {
     private String image;
     private String description;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "document")
+    @JsonIgnore
     private List<Copy> copies;
 
     public String getImage() {

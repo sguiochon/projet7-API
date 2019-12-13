@@ -1,5 +1,7 @@
 package sam.biblio.api.model.library;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -15,7 +17,8 @@ public class Copy {
 
     @Enumerated(value = EnumType.STRING)
     private CopyStatusEnum status;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Document document;
 
     @OneToOne(mappedBy = "copy")

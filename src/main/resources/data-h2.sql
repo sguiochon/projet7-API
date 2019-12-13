@@ -43,26 +43,38 @@ INSERT INTO member (id, membership_start_date, user_id) VALUES (3, '2009-09-17',
 -- Créaton d'un document et de ses exemplaires:
 INSERT INTO document (id, title, author, description, image) VALUES (1, 'Le petit chaperon rouge', 'Charles Perrault', 'Conte de tradition orale', 'chaperon_rouge.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (2, 'AVAILABLE', 1);
+
+
 INSERT INTO copy (id, status, document_id) VALUES (3, 'AVAILABLE', 1);
+INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (1, '2019-01-01', '2019-02-01', 0, 3);
+INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (1, 1);
+
 INSERT INTO copy (id, status, document_id) VALUES (4, 'AVAILABLE', 1);
---INSERT INTO document_copies (document_id, copies_id) VALUES (1,3);
---INSERT INTO document_copies (document_id, copies_id) VALUES (1,4);
+INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (2, '2019-06-01', '2019-08-01', 1, 4);
+INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (1, 2);
 
 -- Créaton d'un document et de ses exemplaires:
 INSERT INTO document (id, title, author, description, image) VALUES (2, 'Bilbo le hobbit', 'J.R.R. Tolkien', 'Célèbre roman fantastique', 'biblo.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (5, 'AVAILABLE', 2);
+
 INSERT INTO copy (id, status, document_id) VALUES (6, 'AVAILABLE', 2);
---INSERT INTO document_copies (document_id, copies_id) VALUES (2,5);
---INSERT INTO document_copies (document_id, copies_id) VALUES (2,6);
+INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (3, '2019-06-01', '2019-08-01', 1, 6);
+INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 3);
 
 -- Créaton d'un document et de ses exemplaires:
 INSERT INTO document (id, title, author, description, image) VALUES (3, 'On a marché sur la lune', 'Hergé', 'Tintin', 'on_a_marche_sur_la_lune.jpg');
 INSERT INTO copy (id, status, document_id) VALUES (7, 'AVAILABLE', 3);
+INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (4, '2019-08-01', '2019-09-01', 1, 7);
+INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 4);
+
 INSERT INTO copy (id, status, document_id) VALUES (8, 'AVAILABLE', 3);
+INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (5, '2019-08-01', '2019-09-01', 1, 8);
+INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 5);
+
 INSERT INTO copy (id, status, document_id) VALUES (9, 'AVAILABLE', 3);
---INSERT INTO document_copies (document_id, copies_id) VALUES (3,7);
---INSERT INTO document_copies (document_id, copies_id) VALUES (3,8);
---INSERT INTO document_copies (document_id, copies_id) VALUES (3,9);
+INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (6, '2019-08-01', '2019-09-01', 1, 9);
+INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 6);
+
 
 -- Créaton d'un document et de ses exemplaires:
 INSERT INTO document (id, title, author, description, image) VALUES (4, 'Objectif lune', 'Hergé', 'Tintin','objectif_lune.jpg');
@@ -91,23 +103,14 @@ INSERT INTO copy (id, status, document_id) VALUES (18, 'AVAILABLE', 6);
 --INSERT INTO document_copies (document_id, copies_id) VALUES (6,18);
 
 -- Création des prêts
-INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (1, '2019-01-01', '2019-02-01', 0, 3);
-INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (1, 1);
 
-INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (2, '2019-06-01', '2019-08-01', 1, 4);
-INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (1, 2);
 
-INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (3, '2019-06-01', '2019-08-01', 1, 6);
-INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 3);
 
-INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (4, '2019-08-01', '2019-09-01', 1, 7);
-INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 4);
 
-INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (5, '2019-08-01', '2019-09-01', 1, 8);
-INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 5);
 
-INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (6, '2019-08-01', '2019-09-01', 1, 9);
-INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (2, 6);
+
+
+
 
 INSERT INTO lending (id, start, end, nb_postponement, copy_id) VALUES (7, '2019-08-01', '2019-09-01', 1, 11);
 INSERT INTO MEMBER_LENDINGS (MEMBER_ID, LENDING_ID) VALUES (3, 7);
