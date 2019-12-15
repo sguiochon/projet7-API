@@ -33,6 +33,7 @@ Si nécessaire, l'application peut-être packagée via `mvn package` pour une ex
 Dans la suite, il est considéré que l'application est exposée sur le endpoint http://localhost:9990.
 
 **Liste des ressources:**
+
 GET http://localhost:9990
 
 Réponse:
@@ -67,6 +68,7 @@ Réponse:
 
 
 **Liste des documents**
+
 GET http://localhost:9990/documents
 
 Réponse (volontairement tronquée):
@@ -98,8 +100,89 @@ Réponse (volontairement tronquée):
       "documentId" : 2,
       "_l...`
 
+**Liste des exemplaires d'un ouvrage**
+
+GET http://localhost:9990/documents/2/copies
+
+Réponse:
+
+`{
+  "_embedded" : {
+    "copies" : [ {
+      "status" : "AVAILABLE",
+      "copyId" : 5,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:9990/copies/5"
+        },
+        "copy" : {
+          "href" : "http://localhost:9990/copies/5"
+        },
+        "lending" : {
+          "href" : "http://localhost:9990/copies/5/lending"
+        },
+        "document" : {
+          "href" : "http://localhost:9990/copies/5/document"
+        }
+      }
+    }, {
+      "status" : "AVAILABLE",
+      "copyId" : 6,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:9990/copies/6"
+        },
+        "copy" : {
+          "href" : "http://localhost:9990/copies/6"
+        },
+        "lending" : {
+          "href" : "http://localhost:9990/copies/6/lending"
+        },
+        "document" : {
+          "href" : "http://localhost:9990/copies/6/document"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:9990/documents/2/copies"
+    }
+  }
+}`
+
+**Liste des exemplaires disponibles au prêt d'un ouvrage**
+
+GET http://localhost:9990/copies/search/searchFreeCopyOfDocument?documentId=1
+
+Réponse
+
+{
+  "_embedded" : {
+    "copies" : [ {
+      "status" : "AVAILABLE",
+      "copyId" : 2,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:9990/lendings/2"
+        },
+        "document" : {
+          "href" : "http://localhost:9990/documents/1"
+        }
+      }
+    } ]
+  },
+  "page" : {
+    "size" : 0,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+
 
 **Liste des users**
+
 GET http://localhost:9990/users
 
 L'accès à cette ressource nécessite une authentification par Basic Auth.
